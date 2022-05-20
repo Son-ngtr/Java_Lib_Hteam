@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class Login_UI {
     private JFrame main_Frame;
-    private ImageIcon bk_Icon, notepad_Icon, login_Ani;
+    private ImageIcon bk_Icon, notepad_Icon, login_Ani, login_ef;
     private JLabel label, notepad_Label, login_Icon;
     private JButton button;
     private JTextField txtName, txtPassword, txt_name, txt_pass, txt_info, txt_Group;
