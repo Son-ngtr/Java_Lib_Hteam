@@ -18,9 +18,9 @@ public class Lobby_UI {
     private JButton logIn;
     private JPanel inFo;
     public Lobby_UI(){
-        ImageIcon bk_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\lobby_UI.png");
+        ImageIcon bk_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\Ui_Lobby.png");
         label = new JLabel(bk_Icon);
-        label.setSize(1493,794);
+        label.setSize(1794,956);
 
         ImageIcon notepad_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\notepad_Gif.gif");
         notepad_Label = new JLabel(notepad_Icon);
@@ -46,7 +46,7 @@ public class Lobby_UI {
         txt_Group.setFont(Font_me_3);
         txt_Group.setBorder(BorderFactory.createLineBorder(new Color(84, 103, 71)));
         txt_Group.setForeground(Color_ForeG);
-        txt_Group.setBounds(1230,750,230,20);
+        txt_Group.setBounds(1200,890,230,20);
         txt_Group.setEditable(false);
 
 
@@ -54,7 +54,7 @@ public class Lobby_UI {
 
         main_Frame = new JFrame("Main_UI");
         main_Frame.add(label);
-        main_Frame.setSize(1493,794);
+        main_Frame.setSize(1794,956);
         main_Frame.setResizable(false);;
         main_Frame.setLayout(null);
         main_Frame.setDefaultCloseOperation(main_Frame.EXIT_ON_CLOSE);
