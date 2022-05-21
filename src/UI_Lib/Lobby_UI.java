@@ -62,4 +62,8 @@ public class Lobby_UI {
         main_Frame.setUndecorated(true);
         main_Frame.setVisible(true);
     }
+
+    public static void main(String[] args) {
+        new Lobby_UI();
+    }
 }
