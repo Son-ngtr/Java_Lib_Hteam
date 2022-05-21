@@ -11,17 +11,18 @@ public class Login_UI {
     private ImageIcon bk_Icon, notepad_Icon, login_Ani, login_ef;
     private JLabel label, notepad_Label, login_Icon;
     private JButton button;
-    private JTextField txtName, txtPassword, txt_name, txt_pass, txt_info, txt_Group;
+    private JTextField txtName, txt_name, txt_pass, txt_info, txt_Group;
     private JButton logIn;
     private JPanel inFo;
+    private JPasswordField txtPassword;
 
     public Login_UI(){
 
-        ImageIcon bk_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\background_UI.png");
+        ImageIcon bk_Icon = new ImageIcon("src/image/background_UI.png");
         label = new JLabel(bk_Icon);
         label.setSize(933,496);
 
-        ImageIcon notepad_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\notepad_Gif.gif");
+        ImageIcon notepad_Icon = new ImageIcon("src/image/notepad_Gif.gif");
         notepad_Label = new JLabel(notepad_Icon);
         notepad_Label.setSize(80,80);
         notepad_Label.setBounds(715,205+10,80,80);
@@ -42,7 +43,7 @@ public class Login_UI {
         txtName.setForeground(Color_ForeG);
         txtName.setBounds(350,220+10,362,25);
 
-        txtPassword = new JTextField(362);
+        txtPassword = new JPasswordField(362);
         txtPassword.setBackground(Color_me);
         txtPassword.setFont(Font_me );
         txtPassword.setBorder(BorderFactory.createLineBorder(new Color(84, 103, 71)));
@@ -81,7 +82,7 @@ public class Login_UI {
             }
         });
 
-        ImageIcon login_Ani = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\login_Ani.gif");
+        ImageIcon login_Ani = new ImageIcon("src/image/login_Ani.gif");
         login_Icon = new JLabel(login_Ani);
         login_Icon.setSize(25,25);
         login_Icon.setBackground(Color_me);
