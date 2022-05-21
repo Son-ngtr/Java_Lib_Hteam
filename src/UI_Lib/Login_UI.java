@@ -4,7 +4,11 @@ import java.awt.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+
+import static javax.swing.text.StyleConstants.setForeground;
 
 public class Login_UI {
     private JFrame main_Frame;
@@ -71,11 +75,21 @@ public class Login_UI {
         logIn.setBorder(BorderFactory.createLineBorder(new Color(84, 103, 71)));
         logIn.setForeground(Color_ForeG);
         logIn.setBackground(Color_me);
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         logIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (txtName.getText().equals("admin") && txtPassword.getText().equals("password")){
-                    JOptionPane.showMessageDialog(null, "Log in completed");
+//                    JOptionPane.showMessageDialog(null, "Log in completed");
+                    new Lobby_UI();
                 }
                 else JOptionPane.showMessageDialog(null,"Log in uncompleted");
             }
@@ -124,6 +138,13 @@ public class Login_UI {
         main_Frame.setVisible(true);
     }
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
         new Login_UI();
     }
