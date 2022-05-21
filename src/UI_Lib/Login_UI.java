@@ -75,7 +75,7 @@ public class Login_UI {
         logIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (txtName.getText().equals("admin") && txtPassword.getText().equals("password")){
+                if (txtName.getText().equalsIgnoreCase("admin") && txtPassword.getText().equalsIgnoreCase("password")){
                     JOptionPane.showMessageDialog(null, "Log in completed");
                 }
                 else JOptionPane.showMessageDialog(null,"Log in uncompleted");
