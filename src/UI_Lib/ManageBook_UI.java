@@ -9,23 +9,23 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 
-public class Lobby_UI {
+public class ManageBook_UI {
     private JFrame main_Frame;
     private ImageIcon bk_Icon, notepad_Icon, login_Ani, login_ef;
-    private JLabel label, notification_Label, login_Icon;
+    private JLabel label, notepad_Label, login_Icon;
     private JButton button ,b1, b2, b3, b4, b5, b6;
-    private JTextField txt_Group, txt_Reader, txt_NoBook, txt_NoBookBorrowed, test;
+    private JTextField txt_Group, txt_Reader, txt_NoBook, txt_NoBookBorrowed;
     private JButton logIn;
     private JPanel inFo;
-    public Lobby_UI(){
-        ImageIcon bk_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\Ui_Lobby.png");
+    public ManageBook_UI(){
+        ImageIcon bk_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\Green_BG_UI.png");
         label = new JLabel(bk_Icon);
         label.setSize(1794,956);
 
-        ImageIcon notification_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\notification.png");
-        notification_Label = new JLabel(notification_Icon);
-        notification_Label.setSize(80,80);
-        notification_Label.setBounds(1000,500,100,100);
+        ImageIcon notepad_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\notepad_Gif.gif");
+        notepad_Label = new JLabel(notepad_Icon);
+        notepad_Label.setSize(80,80);
+        notepad_Label.setBounds(715,205+10,80,80);
 
         Font Font_left = new Font("Lucida Calligraphy", Font.PLAIN, 42);
         Font Font_login = new Font("Lucida Calligraphy", Font.PLAIN, 20);
@@ -285,14 +285,6 @@ public class Lobby_UI {
         txt_NoBookBorrowed.setEditable(false);
 
 
-// TEST
-        test = new JTextField();
-        test.setBackground(Color.MAGENTA);
-        test.setFont(Font_left );
-        test.setBorder(BorderFactory.createLineBorder(new Color(84, 103, 71)));
-        test.setForeground(Color_ForeG_2);
-        test.setBounds(250,750,25,25);
-        test.setEditable(false);
 
 // add all properties on UI
         label.add(txt_Group);
@@ -302,11 +294,9 @@ public class Lobby_UI {
         label.add(b4);
         label.add(b5);
         label.add(b6);
-        label.add(notification_Label);
         label.add(txt_Reader);
         label.add(txt_NoBook);
         label.add(txt_NoBookBorrowed);
-        label.add(test);
 
         main_Frame = new JFrame("Main_UI");
         main_Frame.add(label);
