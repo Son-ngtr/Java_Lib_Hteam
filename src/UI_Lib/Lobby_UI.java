@@ -286,12 +286,12 @@ public class Lobby_UI {
 
 
 // TEST
-        test = new JTextField();
+        test = new JTextField("1", 234);
         test.setBackground(Color.MAGENTA);
         test.setFont(Font_left );
         test.setBorder(BorderFactory.createLineBorder(new Color(84, 103, 71)));
         test.setForeground(Color_ForeG_2);
-        test.setBounds(250,750,25,25);
+        test.setBounds(1500,880,45,45);
         test.setEditable(false);
 
 // add all properties on UI
@@ -302,7 +302,6 @@ public class Lobby_UI {
         label.add(b4);
         label.add(b5);
         label.add(b6);
-        label.add(notification_Label);
         label.add(txt_Reader);
         label.add(txt_NoBook);
         label.add(txt_NoBookBorrowed);
