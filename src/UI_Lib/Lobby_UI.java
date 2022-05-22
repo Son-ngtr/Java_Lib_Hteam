@@ -90,7 +90,7 @@ public class Lobby_UI {
         exit_Label.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                System.exit(0);
             }
 
             @Override
@@ -116,7 +116,7 @@ public class Lobby_UI {
         Font Font_left = new Font("Lucida Calligraphy", Font.PLAIN, 42);
         Font Font_login = new Font("Lucida Calligraphy", Font.PLAIN, 20);
         Font Font_me_2 = new Font("Lucida Console", Font.PLAIN, 48);
-        Font Font_me_3 = new Font("Lucida Console", Font.ITALIC, 12);
+        Font Font_me_3 = new Font("MV Boli", Font.ITALIC, 12);
 
         Color Color_me = new Color(250,183,61);
         Color Color_ForeG = new Color(13,54,57);

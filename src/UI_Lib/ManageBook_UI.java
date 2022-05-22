@@ -13,8 +13,8 @@ public class ManageBook_UI {
     private JFrame main_Frame;
     private ImageIcon bk_Icon, notepad_Icon, login_Ani, login_ef;
     private JLabel label, notification_Label, login_Icon, logout_Label, exit_Label;
-    private JButton button ,b1, b2, b3, b4, b5, b6;
-    private JTextField txt_Group, txt_Reader, txt_NoBook, txt_NoBookBorrowed;
+    private JButton button, bt_add, bt_remove, bt_search;
+    private JTextField txt_Group;
     private JButton logIn;
     private JPanel inFo;
     public ManageBook_UI(){
@@ -109,21 +109,19 @@ public class ManageBook_UI {
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                System.exit(0);
             }
         });
 
-        Font Font_left = new Font("Lucida Calligraphy", Font.PLAIN, 42);
+        Font Font_left = new Font("MV Boli", Font.PLAIN, 30);
         Font Font_login = new Font("Lucida Calligraphy", Font.PLAIN, 20);
         Font Font_me_2 = new Font("Lucida Console", Font.PLAIN, 48);
-        Font Font_me_3 = new Font("Lucida Console", Font.ITALIC, 12);
+        Font Font_me_3 = new Font("MV Boli", Font.ITALIC, 12);
 
         Color Color_me = new Color(250,183,61);
         Color Color_ForeG = new Color(13,54,57);
         Color Color_ForeG_2 = new Color(236,131,2);
         Color Color_left = new Color(84, 103, 71);
-
-
 
         txt_Group = new JTextField("designed by TropicalHorseTeam");
         txt_Group.setBackground(new Color(84, 103, 71));
@@ -133,7 +131,111 @@ public class ManageBook_UI {
         txt_Group.setBounds(1200,890,230,20);
         txt_Group.setEditable(false);
 
+// create 3 button -> function
+        bt_add = new JButton("add book");
+        bt_add.setBounds(74,287,228,50);
+        bt_add.setFont(Font_left);
+        bt_add.setBorder(BorderFactory.createLineBorder(Color_me));
+        bt_add.setForeground(Color_me);
+        bt_add.setBackground(Color_left);
+        bt_add.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
 
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                bt_add.setBackground(Color_ForeG);
+                bt_add.setForeground(Color_me);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                bt_add.setBackground(Color_me);
+                bt_add.setForeground(Color_ForeG);
+            }
+        });
+
+        bt_remove = new JButton("remove book");
+        bt_remove.setBounds(74,399,228,50);
+        bt_remove.setFont(Font_left);
+        bt_remove.setBorder(BorderFactory.createLineBorder(Color_me));
+        bt_remove.setForeground(Color_me);
+        bt_remove.setBackground(Color_left);
+        bt_remove.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                bt_remove.setBackground(Color_ForeG);
+                bt_remove.setForeground(Color_me);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                bt_remove.setBackground(Color_me);
+                bt_remove.setForeground(Color_ForeG);
+            }
+        });
+
+        bt_search = new JButton("search");
+        bt_search.setBounds(74,511,228,50);
+        bt_search.setFont(Font_left);
+        bt_search.setBorder(BorderFactory.createLineBorder(Color_me));
+        bt_search.setForeground(Color_me);
+        bt_search.setBackground(Color_left);
+        bt_search.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                bt_search.setBackground(Color_ForeG);
+                bt_search.setForeground(Color_me);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                bt_search.setBackground(Color_me);
+                bt_search.setForeground(Color_ForeG);
+            }
+        });
 
 
 // add all properties on UI
@@ -141,6 +243,9 @@ public class ManageBook_UI {
         label.add(notification_Label);
         label.add(logout_Label);
         label.add(exit_Label);
+        label.add(bt_add);
+        label.add(bt_remove);
+        label.add(bt_search);
 
         main_Frame = new JFrame("Main_UI");
         main_Frame.add(label);
