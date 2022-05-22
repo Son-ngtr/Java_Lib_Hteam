@@ -12,20 +12,108 @@ import javax.swing.JFrame;
 public class Lobby_UI {
     private JFrame main_Frame;
     private ImageIcon bk_Icon, notepad_Icon, login_Ani, login_ef;
-    private JLabel label, notification_Label, login_Icon;
+    private JLabel label, notification_Label, login_Icon, logout_Label, exit_Label;
     private JButton button ,b1, b2, b3, b4, b5, b6;
-    private JTextField txt_Group, txt_Reader, txt_NoBook, txt_NoBookBorrowed, test;
+    private JTextField txt_Group, txt_Reader, txt_NoBook, txt_NoBookBorrowed;
     private JButton logIn;
     private JPanel inFo;
     public Lobby_UI(){
-        ImageIcon bk_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\Ui_Lobby.png");
+        ImageIcon bk_Icon = new ImageIcon("src/image/Ui_Lobby.png ");
         label = new JLabel(bk_Icon);
         label.setSize(1794,956);
 
-        ImageIcon notification_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\notification.png");
+        ImageIcon notification_Icon = new ImageIcon("src/image/notification (1).png");
         notification_Label = new JLabel(notification_Icon);
         notification_Label.setSize(80,80);
-        notification_Label.setBounds(1000,500,100,100);
+        notification_Label.setBounds(1508,876,45,45);
+        notification_Label.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                JOptionPane.showMessageDialog(null, "interesting news");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        ImageIcon logout_Icon = new ImageIcon("src/image/log-out (1)_fix.png");
+        logout_Label = new JLabel(logout_Icon);
+        logout_Label.setSize(80,80);
+        logout_Label.setBounds(1610,876,45,45);
+        logout_Label.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                JOptionPane.showMessageDialog(null, "Log out account");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        ImageIcon exit_Icon = new ImageIcon("src/image/power (1).png");
+        exit_Label = new JLabel(exit_Icon);
+        exit_Label.setSize(80,80);
+        exit_Label.setBounds(1695,876,45,45);
+        exit_Label.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                JOptionPane.showMessageDialog(null, "Turn off app !!!");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         Font Font_left = new Font("Lucida Calligraphy", Font.PLAIN, 42);
         Font Font_login = new Font("Lucida Calligraphy", Font.PLAIN, 20);
@@ -285,14 +373,7 @@ public class Lobby_UI {
         txt_NoBookBorrowed.setEditable(false);
 
 
-// TEST
-        test = new JTextField("1", 234);
-        test.setBackground(Color.MAGENTA);
-        test.setFont(Font_left );
-        test.setBorder(BorderFactory.createLineBorder(new Color(84, 103, 71)));
-        test.setForeground(Color_ForeG_2);
-        test.setBounds(1500,880,45,45);
-        test.setEditable(false);
+
 
 // add all properties on UI
         label.add(txt_Group);
@@ -305,7 +386,9 @@ public class Lobby_UI {
         label.add(txt_Reader);
         label.add(txt_NoBook);
         label.add(txt_NoBookBorrowed);
-        label.add(test);
+        label.add(notification_Label);
+        label.add(logout_Label);
+        label.add(exit_Label);
 
         main_Frame = new JFrame("Main_UI");
         main_Frame.add(label);
