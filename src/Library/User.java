@@ -8,18 +8,38 @@ public class User {
     private int userAddress;
     private String userPhoneNumber;
     private long userDept;
+    private String userAccount;
+    private String userPassWord;
 
     //Constructor
-    public User(String userID ,String userName,String userGender, int userAge, int userAddress, String userPhoneNumber) {
+    public User(String userID ,String userName,String userGender, int userAge, int userAddress, String userPhoneNumber, String userAccount, String userPassWord) {
         this.userName = userName;
         this.userID = userID;
         this.userGender = userGender;
         this.userAge = userAge;
         this.userAddress = userAddress;
         this.userPhoneNumber = userPhoneNumber;
+        this.userAccount = userAccount;
+        this.userPassWord = userPassWord;
     }
 
     //Getter and Setter
+    public String getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(String userAccount) {
+        this.userAccount = userAccount;
+    }
+
+    public String getUserPassWord() {
+        return userPassWord;
+    }
+
+    public void setUserPassWord(String userPassWord) {
+        this.userPassWord = userPassWord;
+    }
+
     public String getUserID() {
         return userID;
     }
