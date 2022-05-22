@@ -44,7 +44,6 @@ public class Lobby_UI {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                JOptionPane.showMessageDialog(null, "interesting news");
             }
 
             @Override
@@ -75,7 +74,7 @@ public class Lobby_UI {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                JOptionPane.showMessageDialog(null, "Log out account");
+
             }
 
             @Override
@@ -96,7 +95,6 @@ public class Lobby_UI {
 
             @Override
             public void mousePressed(MouseEvent e) {
-
             }
 
             @Override
@@ -106,7 +104,7 @@ public class Lobby_UI {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                JOptionPane.showMessageDialog(null, "Turn off app !!!");
+
             }
 
             @Override
@@ -133,6 +131,12 @@ public class Lobby_UI {
         b1.setBorder(BorderFactory.createLineBorder(Color_me));
         b1.setForeground(Color_ForeG);
         b1.setBackground(Color_me);
+        b1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ManageBook_UI();
+            }
+        });
         b1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
