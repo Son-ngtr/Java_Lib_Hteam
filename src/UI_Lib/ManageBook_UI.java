@@ -17,6 +17,7 @@ public class ManageBook_UI {
     private JTextField txt_Group;
     private JButton logIn;
     private JPanel inFo;
+    private JTable content_TB;
     public ManageBook_UI(){
         ImageIcon bk_Icon = new ImageIcon("src/image/Book_Management_UI.png");
         label = new JLabel(bk_Icon);
@@ -29,7 +30,6 @@ public class ManageBook_UI {
         notification_Label.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
             }
 
             @Override
@@ -90,7 +90,7 @@ public class ManageBook_UI {
         exit_Label.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                System.exit(0);
             }
 
             @Override
@@ -109,7 +109,7 @@ public class ManageBook_UI {
 
             @Override
             public void mouseExited(MouseEvent e) {
-                System.exit(0);
+
             }
         });
 
@@ -236,7 +236,8 @@ public class ManageBook_UI {
                 bt_search.setForeground(Color_ForeG);
             }
         });
-
+// create content_TB
+        content_TB = new JTable();
 
 // add all properties on UI
         label.add(txt_Group);
