@@ -17,7 +17,6 @@ public class ManageBook_UI {
     private JTextField txt_Group;
     private JButton logIn;
     private JPanel inFo;
-    private JTable content_TB;
     public ManageBook_UI(){
         ImageIcon bk_Icon = new ImageIcon("src/image/Book_Management_UI.png");
         label = new JLabel(bk_Icon);
@@ -237,7 +236,11 @@ public class ManageBook_UI {
             }
         });
 // create content_TB
-        content_TB = new JTable();
+        String[][] data = {};
+        String[] co_name = {"cot_1",
+        "cot_2", "cot_3"};
+        JTable ct_TB = new JTable(data, co_name);
+        ct_TB.setBounds(500,511,228,50);
 
 // add all properties on UI
         label.add(txt_Group);
@@ -247,6 +250,8 @@ public class ManageBook_UI {
         label.add(bt_add);
         label.add(bt_remove);
         label.add(bt_search);
+
+        label.add(ct_TB);
 
         main_Frame = new JFrame("Main_UI");
         main_Frame.add(label);
