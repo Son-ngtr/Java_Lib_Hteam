@@ -24,12 +24,13 @@ public class UserManager {
         }
     }
 
-    //Search User
-    public User searchUser(String id){
-        for (User user : users){
-            if(user.getUserID().equalsIgnoreCase(id)){
-                return user;
-            }
-        }
-    }
+//    //Search User
+//    public User searchUser(String id){
+//        for (User user : users){
+//            if(user.getUserID().equalsIgnoreCase(id)){
+//                return user;
+//            }
+//        }
+//        return users;
+//    }
 }

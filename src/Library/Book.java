@@ -1,49 +1,131 @@
 package Library;
 
+import java.util.Calendar;
+
 public class Book {
-    private String bookName;
-    private String bookPrice;
-    private boolean bookStatus;
-    private String bookAuthor;
+    private int Code;
+    private String Name;
+    private Calendar DateAdded;
+    private String Price;
+    private String Author;
+    private String Publisher;
+    private String category;
+    private int Quantity;
 
     //Constructor
-    public Book(String bookName, String bookPrice, boolean bookStatus, String bookAuthor) {
-        this.bookName = bookName;
-        this.bookPrice = bookPrice;
-        this.bookStatus = bookStatus;
-        this.bookAuthor = bookAuthor;
+    public Book(int code, String name, Calendar dateAdded, String price, String author, String publisher, String category, int quantity) {
+        Code = code;
+        Name = name;
+        DateAdded = dateAdded;
+        Price = price;
+        Author = author;
+        Publisher = publisher;
+        this.category = category;
+        Quantity = quantity;
     }
 
     //Getter and Setter
-    public String getBookName() {
-        return bookName;
+
+
+    public int getCode() {
+        return Code;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setCode(int  code) {
+        Code = code;
     }
 
-    public String getBookPrice() {
-        return bookPrice;
+    public String getName() {
+        return Name;
     }
 
-    public void setBookPrice(String bookPrice) {
-        this.bookPrice = bookPrice;
+    public void setName(String name) {
+        Name = name;
     }
 
-    public boolean isBookStatus() {
-        return bookStatus;
+    public Calendar getDateAdded() {
+        return DateAdded;
     }
 
-    public void setBookStatus(boolean bookStatus) {
-        this.bookStatus = bookStatus;
+    public void setDateAdded(Calendar dateAdded) {
+        DateAdded = dateAdded;
     }
 
-    public String getBookAuthor() {
-        return bookAuthor;
+    public String getPrice() {
+        return Price;
     }
 
-    public void setBookAuthor(String bookAuthor) {
-        this.bookAuthor = bookAuthor;
+    public void setPrice(String price) {
+        Price = price;
+    }
+
+    public String getAuthor() {
+        return Author;
+    }
+
+    public void setAuthor(String author) {
+        Author = author;
+    }
+
+    public String getPublisher() {
+        return Publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        Publisher = publisher;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
+    }
+
+    //Set Date
+    public void setDate(int date, int month, int year){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year+0, month-1, date+0);
+        setDateAdded(calendar);
+    }
+
+    //Date convert
+    public String dateConvert(){
+        String date = getDateAdded().get(Calendar.DATE) + "/" + (getDateAdded().get(Calendar.MONTH) + 1) + "/" + getDateAdded().get(Calendar.YEAR);
+        return date;
+    }
+
+    //DateReConvert
+    public void dateReConvert(String dateReConvert){
+        Calendar newCalendar = Calendar.getInstance();
+        String[] times = dateReConvert.split("/");
+        int date = Integer.parseInt(times[0]);
+        int month = Integer.parseInt(times[1]);
+        int year = Integer.parseInt(times[2]);
+        newCalendar.set(year+0, month - 1 , date+0);
+        setDateAdded(newCalendar);
+    }
+
+    //Money convert
+    public String moneyConvert(){
+        String soDu_String = getPrice();
+        String soDu_String_result = "" ;
+        for(int i=soDu_String.length()-1 ; i>=0; i-=3){
+            if(i >= 3){
+                soDu_String_result = "." + soDu_String.substring(i-2, i+1) + soDu_String_result;
+            }else {
+                soDu_String_result = soDu_String.substring(0, i+1) + soDu_String_result;
+            }
+        }
+        return soDu_String_result + "VND";
     }
 }

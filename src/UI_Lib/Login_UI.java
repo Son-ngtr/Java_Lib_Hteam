@@ -4,7 +4,11 @@ import java.awt.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
+
+import static javax.swing.text.StyleConstants.setForeground;
 
 public class Login_UI {
     private JFrame main_Frame;
@@ -27,10 +31,10 @@ public class Login_UI {
         notepad_Label.setSize(80,80);
         notepad_Label.setBounds(715,205+10,80,80);
 
-        Font Font_me = new Font("Lucida Console", Font.PLAIN, 12);
-        Font Font_login = new Font("Lucida Console", Font.PLAIN, 16);
+        Font Font_me = new Font("MV Boli", Font.PLAIN, 12);
+        Font Font_login = new Font("MV Boli", Font.PLAIN, 16);
         Font Font_me_2 = new Font("Lucida Console", Font.PLAIN, 48);
-        Font Font_me_3 = new Font("Lucida Console", Font.ITALIC, 12);
+        Font Font_me_3 = new Font("MV Boli", Font.ITALIC, 12);
 
         Color Color_me = new Color(250,183,61);
         Color Color_ForeG = new Color(13,54,57);
@@ -72,11 +76,21 @@ public class Login_UI {
         logIn.setBorder(BorderFactory.createLineBorder(new Color(84, 103, 71)));
         logIn.setForeground(Color_ForeG);
         logIn.setBackground(Color_me);
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         logIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (txtName.getText().equalsIgnoreCase("admin") && txtPassword.getText().equalsIgnoreCase("password")){
-                    JOptionPane.showMessageDialog(null, "Log in completed");
+                if (txtName.getText().equals("admin") && txtPassword.getText().equals("password")){
+//                    JOptionPane.showMessageDialog(null, "Log in completed");
+                    new Lobby_UI();
                 }
                 else JOptionPane.showMessageDialog(null,"Log in uncompleted");
             }
@@ -125,6 +139,13 @@ public class Login_UI {
         main_Frame.setVisible(true);
     }
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
         new Login_UI();
     }
