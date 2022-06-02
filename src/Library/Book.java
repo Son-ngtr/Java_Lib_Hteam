@@ -6,14 +6,14 @@ public class Book {
     private int Code;
     private String Name;
     private Calendar DateAdded;
-    private String Price;
+    private Long Price;
     private String Author;
     private String Publisher;
     private String category;
     private int Quantity;
 
     //Constructor
-    public Book(int code, String name, Calendar dateAdded, String price, String author, String publisher, String category, int quantity) {
+    public Book(int code, String name, Calendar dateAdded, Long price, String author, String publisher, String category, int quantity) {
         Code = code;
         Name = name;
         DateAdded = dateAdded;
@@ -51,11 +51,11 @@ public class Book {
         DateAdded = dateAdded;
     }
 
-    public String getPrice() {
+    public Long getPrice() {
         return Price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Long price) {
         Price = price;
     }
 
@@ -117,7 +117,7 @@ public class Book {
 
     //Money convert
     public String moneyConvert(){
-        String soDu_String = getPrice();
+        String soDu_String = Long.toString(getPrice());
         String soDu_String_result = "" ;
         for(int i=soDu_String.length()-1 ; i>=0; i-=3){
             if(i >= 3){

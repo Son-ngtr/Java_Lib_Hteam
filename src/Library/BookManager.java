@@ -14,7 +14,7 @@ public class BookManager {
     }
 
     //Tạo ra một cuốn sách
-    public Book createBook(String name, Calendar dateAdded, String price, String author, String publisher, String category, int quantity){
+    public Book createBook(String name, Calendar dateAdded, Long price, String author, String publisher, String category, int quantity){
         codeCount++;
         Book book = new Book(codeCount, name, dateAdded, price, author, publisher, category, quantity);
         return book;
@@ -221,7 +221,7 @@ public class BookManager {
                         book.dateReConvert(value);
                         break;
                     case 3:
-                        book.setPrice(value);
+                        book.setPrice(Long.parseLong(value));
                         break;
                     case 4:
                         book.setAuthor(value);

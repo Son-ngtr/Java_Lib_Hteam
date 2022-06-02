@@ -275,13 +275,13 @@ public class ManageBook_UI {
         //Table
         Calendar calendar = Calendar.getInstance();
         calendar.set(2020, 10, 10);
-        bookManager.addBook(bookManager.createBook("Quang", calendar, "1000", "Sơn", "Dfsdf", "dsfsdf", 10));
+        bookManager.addBook(bookManager.createBook("Quang", calendar, 1000L, "Sơn", "Dfsdf", "dsfsdf", 10));
         calendar.set(2020, 10, 10);
-        bookManager.addBook(bookManager.createBook("Shark", calendar, "1000", "Sơn", "Dfsdf", "dsfsdf", 10));
+        bookManager.addBook(bookManager.createBook("Shark", calendar, 1000L, "Sơn", "Dfsdf", "dsfsdf", 10));
         calendar.set(2020, 10, 10);
-        bookManager.addBook(bookManager.createBook("Babe", calendar, "1000", "Sơn", "Dfsdf", "dsfsdf", 10));
+        bookManager.addBook(bookManager.createBook("Babe", calendar, 1000L, "Sơn", "Dfsdf", "dsfsdf", 10));
         calendar.set(2020, 10, 10);
-        bookManager.addBook(bookManager.createBook("Duong", calendar, "1000", "Sơn", "Dfsdf", "dsfsdf", 10));
+        bookManager.addBook(bookManager.createBook("Duong", calendar, 1000L, "Sơn", "Dfsdf", "dsfsdf", 10));
         defaultTableModel = new DefaultTableModel(bookManager.listBook(), bookManager.bookContent());
         table = new JTable(defaultTableModel){
             public boolean isCellEditable(int row,int column){
