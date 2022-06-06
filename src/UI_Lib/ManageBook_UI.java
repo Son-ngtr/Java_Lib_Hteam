@@ -2,12 +2,8 @@ package UI_Lib;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JFrame;
 
 public class ManageBook_UI {
     private JFrame main_Frame;
@@ -140,7 +136,7 @@ public class ManageBook_UI {
         bt_add.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                new addBook_UI();
             }
 
             @Override

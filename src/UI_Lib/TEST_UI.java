@@ -1,42 +1,22 @@
 package UI_Lib;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-class TEST_UI {
-    public static void main(String[] args) {
-        JFrame jFrame = new JFrame();
-        // Frame Title
-        jFrame.setTitle("JTable Example");
-        // Data to be displayed in the JTable
-        String[][] data = {
-                { "Kundan Kumar Jha", "4031", "CSE" },
-                { "Anand Jha", "6014", "IT" },
-                {"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"},{"a","7", "t"},
-                {"a","7", "t"},
-                {"a","7", "t"}
 
-        };
-        // Column Names
-        String[] columnNames = { "Name", "Roll Number", "Department" };
-        // Initializing the JTable
-        JTable jTable = new JTable(data, columnNames);
-        jTable.setBounds(30, 40, 200, 300);
-        // adding it to JScrollPane
-        JScrollPane sp = new JScrollPane(jTable);
-        jFrame.add(sp);
-        // Frame Size
-        jFrame.setSize(500, 200);
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setVisible(true);
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+
+class TEST_UI {
+    public TEST_UI(){
+        ImageIcon icon = new ImageIcon("src/image/FIX_3.png");
+        JLabel lb = new JLabel();
+        lb.setIcon(icon);
+//        lb.setSize(600,400);
+
+        JFrame main_Frame = new JFrame("test");
+        main_Frame.setSize(icon.getIconWidth(),icon.getIconHeight());
+        main_Frame.setVisible(true);
+        main_Frame.add(lb);
+    }
+    public static void main(String[] args) {
+        new TEST_UI();
     }
 }

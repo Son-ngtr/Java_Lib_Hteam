@@ -18,9 +18,9 @@ public class Lobby_UI {
     private JButton logIn;
     private JPanel inFo;
     public Lobby_UI(){
-        ImageIcon bk_Icon = new ImageIcon("src/image/Ui_Lobby.png ");
+        ImageIcon bk_Icon = new ImageIcon("src/image/Ui_Lobby.png");
         label = new JLabel(bk_Icon);
-        label.setSize(1794,956);
+        label.setSize(bk_Icon.getIconWidth(), bk_Icon.getIconHeight());
 
         ImageIcon notification_Icon = new ImageIcon("src/image/notification (1).png");
         notification_Label = new JLabel(notification_Icon);
