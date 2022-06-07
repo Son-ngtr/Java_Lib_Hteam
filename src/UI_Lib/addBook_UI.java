@@ -137,6 +137,12 @@ public class addBook_UI {
         bt_exit.setFont(Font_me_3);
         bt_exit.setBorder(BorderFactory.createLineBorder(Color_ForeG));
         bt_exit.setBounds(255, 582, 175, 39);
+        bt_exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                main_Frame.setVisible(false);
+            }
+        });
 
         bt_reset = new JButton("reset");
         bt_reset.setForeground(Color_ForeG);
