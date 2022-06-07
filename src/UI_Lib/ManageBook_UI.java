@@ -157,7 +157,9 @@ public class ManageBook_UI {
         bt_add.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                addBook_UI addBook = new addBook_UI();
+                addBook.setManagerUserFrame(main_Frame);
+                main_Frame.setEnabled(false);
             }
 
             @Override

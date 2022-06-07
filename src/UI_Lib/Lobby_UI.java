@@ -18,9 +18,9 @@ public class Lobby_UI {
     private JButton logIn;
     private JPanel inFo;
     public Lobby_UI(){
-        ImageIcon bk_Icon = new ImageIcon("src/image/Ui_Lobby.png ");
+        ImageIcon bk_Icon = new ImageIcon("src/image/Ui_Lobby.png");
         label = new JLabel(bk_Icon);
-        label.setSize(1794,956);
+        label.setSize(bk_Icon.getIconWidth(), bk_Icon.getIconHeight());
 
         ImageIcon notification_Icon = new ImageIcon("src/image/notification (1).png");
         notification_Label = new JLabel(notification_Icon);
@@ -396,7 +396,7 @@ public class Lobby_UI {
 
         main_Frame = new JFrame("Main_UI");
         main_Frame.add(label);
-        main_Frame.setSize(1294,956);
+        main_Frame.setSize(1794,956);
         main_Frame.setResizable(false);;
         main_Frame.setLayout(null);
         main_Frame.setDefaultCloseOperation(main_Frame.EXIT_ON_CLOSE);

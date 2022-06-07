@@ -1,4 +1,4 @@
 package UI_Lib;
+public class ManageStaff_UI{
 
-public class ManageStaff_UI {
 }
