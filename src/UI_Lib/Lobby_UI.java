@@ -12,25 +12,111 @@ import javax.swing.JFrame;
 public class Lobby_UI {
     private JFrame main_Frame;
     private ImageIcon bk_Icon, notepad_Icon, login_Ani, login_ef;
-    private JLabel label, notepad_Label, login_Icon;
+    private JLabel label, notification_Label, login_Icon, logout_Label, exit_Label;
     private JButton button ,b1, b2, b3, b4, b5, b6;
     private JTextField txt_Group, txt_Reader, txt_NoBook, txt_NoBookBorrowed;
     private JButton logIn;
     private JPanel inFo;
     public Lobby_UI(){
-        ImageIcon bk_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\Ui_Lobby.png");
+        ImageIcon bk_Icon = new ImageIcon("src/image/Ui_Lobby.png");
         label = new JLabel(bk_Icon);
-        label.setSize(1794,956);
+        label.setSize(bk_Icon.getIconWidth(), bk_Icon.getIconHeight());
 
-        ImageIcon notepad_Icon = new ImageIcon("D:\\Project Java\\Java_LibraryMa\\src\\image\\notepad_Gif.gif");
-        notepad_Label = new JLabel(notepad_Icon);
-        notepad_Label.setSize(80,80);
-        notepad_Label.setBounds(715,205+10,80,80);
+        ImageIcon notification_Icon = new ImageIcon("src/image/notification (1).png");
+        notification_Label = new JLabel(notification_Icon);
+        notification_Label.setSize(80,80);
+        notification_Label.setBounds(1508,876,45,45);
+        notification_Label.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        ImageIcon logout_Icon = new ImageIcon("src/image/log-out (1)_fix.png");
+        logout_Label = new JLabel(logout_Icon);
+        logout_Label.setSize(80,80);
+        logout_Label.setBounds(1610,876,45,45);
+        logout_Label.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        ImageIcon exit_Icon = new ImageIcon("src/image/power (1).png");
+        exit_Label = new JLabel(exit_Icon);
+        exit_Label.setSize(80,80);
+        exit_Label.setBounds(1695,876,45,45);
+        exit_Label.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.exit(0);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         Font Font_left = new Font("Lucida Calligraphy", Font.PLAIN, 42);
         Font Font_login = new Font("Lucida Calligraphy", Font.PLAIN, 20);
         Font Font_me_2 = new Font("Lucida Console", Font.PLAIN, 48);
-        Font Font_me_3 = new Font("Lucida Console", Font.ITALIC, 12);
+        Font Font_me_3 = new Font("MV Boli", Font.ITALIC, 12);
 
         Color Color_me = new Color(250,183,61);
         Color Color_ForeG = new Color(13,54,57);
@@ -45,6 +131,12 @@ public class Lobby_UI {
         b1.setBorder(BorderFactory.createLineBorder(Color_me));
         b1.setForeground(Color_ForeG);
         b1.setBackground(Color_me);
+        b1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ManageBook_UI();
+            }
+        });
         b1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -286,6 +378,7 @@ public class Lobby_UI {
 
 
 
+
 // add all properties on UI
         label.add(txt_Group);
         label.add(b1);
@@ -297,6 +390,9 @@ public class Lobby_UI {
         label.add(txt_Reader);
         label.add(txt_NoBook);
         label.add(txt_NoBookBorrowed);
+        label.add(notification_Label);
+        label.add(logout_Label);
+        label.add(exit_Label);
 
         main_Frame = new JFrame("Main_UI");
         main_Frame.add(label);
