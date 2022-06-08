@@ -187,7 +187,7 @@ public class addBook_UI {
                                 }else
                                 {
                                     if(txt_6.getText().trim() == "" || !bookManager.isLong(txt_6.getText().trim())){
-                                        JOptionPane.showMessageDialog(null, "Thiếu thông tin tên sách");
+                                        JOptionPane.showMessageDialog(null, "Thiếu thông tin số lượng sách");
                                         inputCheck = false;
                                     }else
                                     {
