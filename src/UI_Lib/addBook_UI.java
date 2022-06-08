@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 public class addBook_UI {
-    private JFrame main_Frame, managerUserFrame;
+    private JFrame main_Frame, managerBookFrame;
     private ImageIcon bk_Icon, notepad_Icon, login_Ani, login_ef;
     private JLabel label, notification_Label, login_Icon, logout_Label, exit_Label;
     private JButton button ,b1, b2, b3, b4, b5, b6, bt_save, bt_exit, bt_reset;
@@ -26,7 +26,7 @@ public class addBook_UI {
 
     //Manager Book Side
     public void setManagerUser(JFrame frame, BookManager bookManager, DefaultTableModel defaultTableModel){
-        managerUserFrame = frame;
+        managerBookFrame = frame;
         this.bookManager = bookManager;
         this.defaultTableModel = defaultTableModel;
     }
@@ -220,8 +220,8 @@ public class addBook_UI {
         bt_exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                main_Frame.setVisible(false);
-                managerUserFrame.setEnabled(true);
+                managerBookFrame.setEnabled(true);
+                main_Frame.dispose();
             }
         });
 
