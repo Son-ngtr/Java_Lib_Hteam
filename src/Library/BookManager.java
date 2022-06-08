@@ -4,8 +4,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class BookManager {
+    private boolean isUpdate = false;
     private int codeCount = 0;
 
+    //Getter and Setter
+    public boolean getIsUpdate() {
+        return isUpdate;
+    }
+
+    public void setIsUpdate(boolean update) {
+        isUpdate = update;
+    }
+
+    //Array List, Book List
     private ArrayList<Book> books = new ArrayList<>();
 
     //Constructor

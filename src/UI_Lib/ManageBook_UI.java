@@ -31,9 +31,17 @@ public class ManageBook_UI {
     private JPanel inFo;
     private JTable table;
     private DefaultTableModel defaultTableModel;
-    private boolean isUpdate = false;
+    private BookManager bookManager;
+
+    //Table reset
+    public void tableReset(){
+        bookManager.setIsUpdate(true);
+        defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
+        bookManager.setIsUpdate(false);
+    }
+
     public ManageBook_UI(){
-        BookManager bookManager = new BookManager();
+        bookManager = new BookManager();
 
         ImageIcon bk_Icon = new ImageIcon("src/image/Book_Management_UI.png");
         label = new JLabel(bk_Icon);
@@ -158,7 +166,7 @@ public class ManageBook_UI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 addBook_UI addBook = new addBook_UI();
-                addBook.setManagerUserFrame(main_Frame);
+                addBook.setManagerUser(main_Frame, bookManager, defaultTableModel);
                 main_Frame.setEnabled(false);
             }
 
@@ -195,10 +203,8 @@ public class ManageBook_UI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(table.getSelectedRow() != -1){
-                    isUpdate = true;
                     bookManager.removeBook(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
-                    defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                    isUpdate = false;
+                    tableReset();
                 }
             }
 
@@ -334,120 +340,102 @@ public class ManageBook_UI {
         table.getModel().addTableModelListener(new TableModelListener() {
             @Override
             public void tableChanged(TableModelEvent e) {
-                if(!isUpdate){
+                if(!bookManager.getIsUpdate()){
                     String codeValue = String.valueOf(table.getValueAt(table.getSelectedRow(), 0));
                     String newValue = String.valueOf(table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()));
                     switch (table.getSelectedColumn()){
                         case 1:
-                            if(!isUpdate){
+                            if(!bookManager.getIsUpdate()){
                                 if(newValue.trim().length() > 0){
                                     bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
                                 }else {
-                                    isUpdate = true;
                                     int row = table.getSelectedRow();
                                     int col = table.getSelectedColumn();
                                     JOptionPane.showMessageDialog(null, "Tên phải được đưa vào ở dạng chuỗi và có nhiều hơn 1 kí tự");
-                                    defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                    isUpdate = false;
+                                    tableReset();
                                 }
                             }
 
                             break;
                         case 2:
-                            if(!isUpdate){
+                            if(!bookManager.getIsUpdate()){
                                 if(newValue.trim().length() > 0 && bookManager.isDateOrNot(newValue)){
                                     bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
                                 }else {
-                                    isUpdate = true;
                                     int row = table.getSelectedRow();
                                     int col = table.getSelectedColumn();
                                     JOptionPane.showMessageDialog(null, "Thông tin phải được nhập dưới dạng d/m/y và tồn tại thời điểm nhập");
-                                    defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                    isUpdate = false;
+                                    tableReset();
                                 }
                             }
 
                             break;
                         case 3:
-                            if(!isUpdate){
+                            if(!bookManager.getIsUpdate()){
                                 if(newValue.trim().length() > 0 && bookManager.isLong(newValue)){
                                     bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
-                                    isUpdate = true;
-                                    defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                    isUpdate = false;
+                                    tableReset();
                                 }else {
                                     if(bookManager.moneyCheck(newValue)){
                                         bookManager.editBook(codeValue, table.getSelectedColumn(), bookManager.moneyConvert(newValue));
-                                        isUpdate = true;
-                                        defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                        isUpdate = false;
+                                        tableReset();
                                     }else {
-                                        isUpdate = true;
                                         int row = table.getSelectedRow();
                                         int col = table.getSelectedColumn();
                                         JOptionPane.showMessageDialog(null, "Giá phải được nhập dưới dạng (VD: 10000 or 10.000VND)");
-                                        defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                        isUpdate = false;
+                                        tableReset();
                                     }
                                 }
                             }
 
                             break;
                         case 4:
-                            if(!isUpdate){
+                            if(!bookManager.getIsUpdate()){
                                 if(newValue.trim().length() > 0 ){
                                     bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
                                 }else {
-                                    isUpdate = true;
                                     int row = table.getSelectedRow();
                                     int col = table.getSelectedColumn();
                                     JOptionPane.showMessageDialog(null, "Tên tác giả phải được đưa vào ở dạng chuỗi và có nhiều hơn 1 kí tự");
-                                    defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                    isUpdate = false;
+                                    tableReset();
                                 }
                             }
 
                             break;
                         case 5:
-                            if(!isUpdate){
+                            if(!bookManager.getIsUpdate()){
                                 if(newValue.trim().length() > 0 ){
                                     bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
                                 }else {
-                                    isUpdate = true;
                                     int row = table.getSelectedRow();
                                     int col = table.getSelectedColumn();
                                     JOptionPane.showMessageDialog(null, "Tên phải được đưa vào ở dạng chuỗi và có nhiều hơn 1 kí tự");
-                                    defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                    isUpdate = false;
+                                    tableReset();
                                 }
                             }
 
                             break;
                         case 6:
-                            if(!isUpdate){
+                            if(!bookManager.getIsUpdate()){
                                 if(newValue.trim().length() > 0 ){
                                     bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
                                 }else {
-                                    isUpdate = true;
                                     int row = table.getSelectedRow();
                                     int col = table.getSelectedColumn();
                                     JOptionPane.showMessageDialog(null, "Tên phải được đưa vào ở dạng chuỗi và có nhiều hơn 1 kí tự");
-                                    defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                    isUpdate = false;
+                                    tableReset();
                                 }
                             }
                             break;
                         case 7:
-                            if(!isUpdate){
+                            if(!bookManager.getIsUpdate()){
                                 if(newValue.trim().length() > 0 && bookManager.isLong(newValue)){
                                     bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
                                 }else {
-                                    isUpdate = true;
                                     int row = table.getSelectedRow();
                                     int col = table.getSelectedColumn();
                                     JOptionPane.showMessageDialog(null, "Số lượng sách phải được nhập dưới dạng number(int)");
-                                    defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-                                    isUpdate = false;
+                                    tableReset();
                                 }
                             }
                             break;
