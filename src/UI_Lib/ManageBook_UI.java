@@ -197,7 +197,7 @@ public class ManageBook_UI {
             }
         });
 
-        bt_search = new JButton("search");
+        bt_search = new JButton("repair");
         bt_search.setBounds(74,511,228,50);
         bt_search.setFont(Font_left);
         bt_search.setBorder(BorderFactory.createLineBorder(Color_me));

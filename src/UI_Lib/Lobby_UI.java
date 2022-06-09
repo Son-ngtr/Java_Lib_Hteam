@@ -306,7 +306,7 @@ public class Lobby_UI {
             }
         });
 
-        b6 = new JButton("Manage"+" \t" +"");
+        b6 = new JButton("info_Team");
         b6.setBounds(1385,669,203,99);
         b6.setFont(Font_login);
         b6.setBorder(BorderFactory.createLineBorder(Color_me));

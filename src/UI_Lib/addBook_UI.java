@@ -123,7 +123,7 @@ public class addBook_UI {
         txt_6.setBorder(BorderFactory.createLineBorder(Color_me));
         txt_6.setFont(Font_me_3);
 
-// create 3 funtion bt
+// create 3 function bt
         bt_save = new JButton("save");
         bt_save.setForeground(Color_ForeG);
         bt_save.setBackground(Color_left);
@@ -137,6 +137,32 @@ public class addBook_UI {
         bt_exit.setFont(Font_me_3);
         bt_exit.setBorder(BorderFactory.createLineBorder(Color_ForeG));
         bt_exit.setBounds(255, 582, 175, 39);
+        bt_exit.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                main_Frame.setVisible(false);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         bt_reset = new JButton("reset");
         bt_reset.setForeground(Color_ForeG);
