@@ -161,32 +161,32 @@ public class addBook_UI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean inputCheck = true;
-                if(txt_1.getText().trim() == ""){
+                if(txt_1.getText().trim().length() == 0){
                     JOptionPane.showMessageDialog(null, "Thiếu thông tin tên sách");
                     inputCheck = false;
                 }else
                 {
-                    if(txt_2.getText().trim() == "" || !bookManager.moneyCheck(txt_2.getText().trim())){
+                    if(txt_2.getText().trim().length() == 0 || !bookManager.moneyCheck(txt_2.getText().trim())){
                         JOptionPane.showMessageDialog(null, "Thiếu thông tin tên giá hoặc nhập vào sai thông tin");
                         inputCheck = false;
                     }  else
                     {
-                        if(txt_3.getText().trim() == ""){
+                        if(txt_3.getText().trim().length() == 0){
                             JOptionPane.showMessageDialog(null, "Thiếu thông tin tác giả");
                             inputCheck = false;
                         }else
                         {
-                            if(txt_4.getText().trim() == ""){
+                            if(txt_4.getText().trim().length() == 0){
                                 JOptionPane.showMessageDialog(null, "Thiếu thông tin tên nhà phát hành");
                                 inputCheck = false;
                             }else
                             {
-                                if(txt_5.getText().trim() == ""){
+                                if(txt_5.getText().trim().length() == 0){
                                     JOptionPane.showMessageDialog(null, "Thiếu thông tin loại sách");
                                     inputCheck = false;
                                 }else
                                 {
-                                    if(txt_6.getText().trim() == "" || !bookManager.isLong(txt_6.getText().trim())){
+                                    if(txt_6.getText().trim().length() == 0 || !bookManager.isLong(txt_6.getText().trim())){
                                         JOptionPane.showMessageDialog(null, "Thiếu thông tin số lượng sách");
                                         inputCheck = false;
                                     }else
