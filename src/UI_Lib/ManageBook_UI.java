@@ -430,8 +430,9 @@ public class ManageBook_UI {
                             break;
                         case 7:
                             if(!bookManager.getIsUpdate()){
-                                if(newValue.trim().length() > 0 && bookManager.isLong(newValue)){
-                                    bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
+                                if(newValue.trim().length() > 0 && bookManager.mathCheck(bookManager.mathAnalysis(newValue))){
+                                    bookManager.editBook(codeValue, table.getSelectedColumn(), bookManager.matConvert(bookManager.mathAnalysis(newValue)));
+                                    tableReset();
                                 }else {
                                     int row = table.getSelectedRow();
                                     int col = table.getSelectedColumn();

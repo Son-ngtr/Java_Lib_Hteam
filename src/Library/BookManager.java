@@ -129,7 +129,6 @@ public class BookManager {
         }
         return true;
     }
-
     public boolean isLong(String s){
         try {
             Long.parseLong(s);
@@ -218,6 +217,75 @@ public class BookManager {
         return s;
     }
 
+
+    //Kiểm tra có phải phép tính không
+    public String[] mathAnalysis(String math){
+        String result[] = new String[2];
+        result[0] = "";
+        result[1] = "+";
+        for (int i=0; i<math.length() ; i++){
+            char a = math.charAt(i);
+            switch (a){
+                case '+':
+                case '-':
+                case 'x':
+                case '*':
+                case '/':
+                    result[1] += a;
+                    result[0] += " ";
+                    break;
+                default:
+                    if(Character.compare(a, '0') >= 0 && Character.compare(a, '9') <= 0){
+                        result[0] += a;
+                    }
+                    break;
+            }
+        }
+        return result;
+    }
+    public boolean mathCheck(String[] analysisResult){
+        System.out.println(analysisResult[0]);
+        System.out.println(analysisResult[1]);
+        String s1[] = analysisResult[0].trim().split(" ");
+        String s2[] = analysisResult[1].split("");
+
+        if (s1.length != s2.length || analysisResult[0].trim() == ""){
+            return false;
+        }
+
+        return true;
+    }
+    public String matConvert(String[] analysisResult){
+        long result = 0;
+
+        String s1[] = analysisResult[0].split(" ");
+        String s2[] = analysisResult[1].split("");
+
+        for (int i=0 ; i<s2.length;i++){
+            switch (s2[i]){
+                case "+":
+                    result = result + Long.parseLong(s1[i]);
+                    break;
+                case "-":
+                    result = result - Long.parseLong(s1[i]);
+                    break;
+                case "x":
+                    result = result * Long.parseLong(s1[i]);
+                    break;
+                case "*":
+                    result = result * Long.parseLong(s1[i]);
+                    break;
+                case "/":
+                    result = result / Long.parseLong(s1[i]);
+                    break;
+
+            }
+        }
+        if(result < 0){
+            result = 0;
+        }
+        return Long.toString(result);
+    }
 
 
     //Sửa Thông Tin Sách
