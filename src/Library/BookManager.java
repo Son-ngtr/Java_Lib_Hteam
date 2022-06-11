@@ -244,8 +244,6 @@ public class BookManager {
         return result;
     }
     public boolean mathCheck(String[] analysisResult){
-        System.out.println(analysisResult[0]);
-        System.out.println(analysisResult[1]);
         String s1[] = analysisResult[0].trim().split(" ");
         String s2[] = analysisResult[1].split("");
 

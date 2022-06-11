@@ -186,13 +186,13 @@ public class addBook_UI {
                                     inputCheck = false;
                                 }else
                                 {
-                                    if(txt_6.getText().trim().length() == 0 || !bookManager.isLong(txt_6.getText().trim())){
+                                    if(txt_6.getText().trim().length() == 0 || !bookManager.mathCheck(bookManager.mathAnalysis(txt_6.getText()))){
                                         JOptionPane.showMessageDialog(null, "Thiếu thông tin số lượng sách");
                                         inputCheck = false;
                                     }else
                                     {
                                         if (inputCheck){
-                                            createNewBook(txt_1.getText().trim(), Long.parseLong(bookManager.moneyConvert(txt_2.getText().trim())) , txt_3.getText().trim(), txt_4.getText().trim(), txt_5.getText().trim(), Integer.parseInt(txt_6.getText().trim()));
+                                            createNewBook(txt_1.getText().trim(), Long.parseLong(bookManager.moneyConvert(txt_2.getText().trim())) , txt_3.getText().trim(), txt_4.getText().trim(), txt_5.getText().trim(), Integer.parseInt(bookManager.matConvert(bookManager.mathAnalysis(txt_6.getText().trim()))) );
                                             txt_1.setText("");
                                             txt_2.setText("");
                                             txt_3.setText("");
