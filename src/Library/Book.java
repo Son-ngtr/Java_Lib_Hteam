@@ -25,8 +25,6 @@ public class Book {
     }
 
     //Getter and Setter
-
-
     public int getCode() {
         return Code;
     }

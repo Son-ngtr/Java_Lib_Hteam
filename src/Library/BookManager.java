@@ -19,9 +19,10 @@ public class BookManager {
     //Array List, Book List
     private ArrayList<Book> books = new ArrayList<>();
 
-    //Constructor
-    public BookManager(){
-
+    //Book Category
+    public String[] bookCategory(){
+        String bookCategory[] = {"Sách Giáo Trình", "Tiểu Thuyết", "Thiếu Nhi", "Tâm Lý Học"};
+        return bookCategory;
     }
 
     //Tạo ra một cuốn sách

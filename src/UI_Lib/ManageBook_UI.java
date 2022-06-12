@@ -31,17 +31,11 @@ public class ManageBook_UI {
     private JPanel inFo;
     private JTable table;
     private DefaultTableModel defaultTableModel;
-    private BookManager bookManager;
-
-    //Table reset
-    public void tableReset(){
-        bookManager.setIsUpdate(true);
-        defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
-        bookManager.setIsUpdate(false);
-    }
+    private BookManager bookManager= new BookManager();
+    private JComboBox cb = new JComboBox(bookManager.bookCategory());
 
     public ManageBook_UI(){
-        bookManager = new BookManager();
+
 
         ImageIcon bk_Icon = new ImageIcon("src/image/Book_Management_UI.png");
         label = new JLabel(bk_Icon);
@@ -166,7 +160,7 @@ public class ManageBook_UI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 addBook_UI addBook = new addBook_UI();
-                addBook.setManagerUser(main_Frame, bookManager, defaultTableModel);
+                addBook.setManagerUser(main_Frame, bookManager, defaultTableModel, table, cb);
                 main_Frame.setEnabled(false);
             }
 
@@ -283,13 +277,13 @@ public class ManageBook_UI {
         //Table
         Calendar calendar = Calendar.getInstance();
         calendar.set(2020, 10, 10);
-        bookManager.addBook(bookManager.createBook("Quang", calendar, 1000L, "Sơn", "Dfsdf", "dsfsdf", 10));
+        bookManager.addBook(bookManager.createBook("Quang", calendar, 1000L, "Sơn", "Dfsdf", "Thiếu Nhi", 10));
         calendar.set(2020, 10, 10);
-        bookManager.addBook(bookManager.createBook("Shark", calendar, 1000L, "Sơn", "Dfsdf", "dsfsdf", 10));
+        bookManager.addBook(bookManager.createBook("Shark", calendar, 1000L, "Sơn", "Dfsdf", "Sách Giáo Trình", 10));
         calendar.set(2020, 10, 10);
-        bookManager.addBook(bookManager.createBook("Babe", calendar, 1000L, "Sơn", "Dfsdf", "dsfsdf", 10));
+        bookManager.addBook(bookManager.createBook("Babe", calendar, 1000L, "Sơn", "Dfsdf", "Tâm Lý Học", 10));
         calendar.set(2020, 10, 10);
-        bookManager.addBook(bookManager.createBook("Duong", calendar, 1000L, "Sơn", "Dfsdf", "dsfsdf", 10));
+        bookManager.addBook(bookManager.createBook("Duong", calendar, 1000L, "Sơn", "Dfsdf", "Tiểu Thuyết", 10));
 
         defaultTableModel = new DefaultTableModel(bookManager.listBook(), bookManager.bookContent());
         table = new JTable(defaultTableModel){
@@ -301,6 +295,8 @@ public class ManageBook_UI {
         table.getTableHeader().setReorderingAllowed(false);
         table.setBorder(BorderFactory.createLineBorder(Color_me));
         table.setRowHeight(30);
+
+        table.getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(cb));
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(435, 140, 1034, 600);
         scrollPane.setBackground(Color_left);
@@ -420,11 +416,6 @@ public class ManageBook_UI {
                             if(!bookManager.getIsUpdate()){
                                 if(newValue.trim().length() > 0 ){
                                     bookManager.editBook(codeValue, table.getSelectedColumn(), newValue);
-                                }else {
-                                    int row = table.getSelectedRow();
-                                    int col = table.getSelectedColumn();
-                                    JOptionPane.showMessageDialog(null, "Tên phải được đưa vào ở dạng chuỗi và có nhiều hơn 1 kí tự");
-                                    tableReset();
                                 }
                             }
                             break;
@@ -495,6 +486,14 @@ public class ManageBook_UI {
         main_Frame.setLocationRelativeTo(null);
         main_Frame.setUndecorated(true);
         main_Frame.setVisible(true);
+    }
+
+    //Table reset
+    public void tableReset(){
+        bookManager.setIsUpdate(true);
+        defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
+        table.getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(cb));
+        bookManager.setIsUpdate(false);
     }
 
     public static void main(String[] args) {

@@ -23,12 +23,16 @@ public class addBook_UI {
     private JPanel inFo;
     private BookManager bookManager;
     private DefaultTableModel defaultTableModel;
+    private JComboBox cb;
+    private JTable table;
 
     //Manager Book Side
-    public void setManagerUser(JFrame frame, BookManager bookManager, DefaultTableModel defaultTableModel){
+    public void setManagerUser(JFrame frame, BookManager bookManager, DefaultTableModel defaultTableModel, JTable table, JComboBox cb){
         managerBookFrame = frame;
         this.bookManager = bookManager;
         this.defaultTableModel = defaultTableModel;
+        this.table = table;
+        this.cb = cb;
     }
 
     //Create New Book
@@ -41,6 +45,7 @@ public class addBook_UI {
     public void tableReset(){
         bookManager.setIsUpdate(true);
         defaultTableModel.setDataVector(bookManager.listBook(), bookManager.bookContent());
+        table.getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(cb));
         bookManager.setIsUpdate(false);
     }
 
@@ -134,13 +139,13 @@ public class addBook_UI {
         txt_4.setBorder(BorderFactory.createLineBorder(Color_me));
         txt_4.setFont(Font_me_3);
 
-
-        txt_5 = new JTextField();
-        txt_5.setBackground(Color_left);
-        txt_5.setBounds(283, 389, 337, 44);
-        txt_5.setForeground(Color_me);
-        txt_5.setBorder(BorderFactory.createLineBorder(Color_me));
-        txt_5.setFont(Font_me_3);
+        String bookCategory[] = {"Sách Giáo Trình", "Tiểu Thuyết", "Thiếu Nhi", "Tâm Lý Học"};
+        cb = new JComboBox(bookCategory);
+        cb.setBackground(Color_left);
+        cb.setBounds(283, 389, 337, 44);
+        cb.setForeground(Color_me);
+        cb.setBorder(BorderFactory.createLineBorder(Color_me));
+        cb.setFont(Font_me_3);
 
 
         txt_6 = new JTextField();
@@ -181,7 +186,7 @@ public class addBook_UI {
                                 inputCheck = false;
                             }else
                             {
-                                if(txt_5.getText().trim().length() == 0){
+                                if(cb.getItemAt(cb.getSelectedIndex()).equals("")){
                                     JOptionPane.showMessageDialog(null, "Thiếu thông tin loại sách");
                                     inputCheck = false;
                                 }else
@@ -192,12 +197,11 @@ public class addBook_UI {
                                     }else
                                     {
                                         if (inputCheck){
-                                            createNewBook(txt_1.getText().trim(), Long.parseLong(bookManager.moneyConvert(txt_2.getText().trim())) , txt_3.getText().trim(), txt_4.getText().trim(), txt_5.getText().trim(), Integer.parseInt(bookManager.matConvert(bookManager.mathAnalysis(txt_6.getText().trim()))) );
+                                            createNewBook(txt_1.getText().trim(), Long.parseLong(bookManager.moneyConvert(txt_2.getText().trim())) , txt_3.getText().trim(), txt_4.getText().trim(), String.valueOf(cb.getItemAt(cb.getSelectedIndex())) , Integer.parseInt(bookManager.matConvert(bookManager.mathAnalysis(txt_6.getText().trim()))) );
                                             txt_1.setText("");
                                             txt_2.setText("");
                                             txt_3.setText("");
                                             txt_4.setText("");
-                                            txt_5.setText("");
                                             txt_6.setText("");
                                             tableReset();
                                             JOptionPane.showMessageDialog(null, "Tạo Sách mới thành công!!!");
@@ -256,7 +260,7 @@ public class addBook_UI {
         label.add(txt_2);
         label.add(txt_3);
         label.add(txt_4);
-        label.add(txt_5);
+        label.add(cb);
         label.add(txt_6);
 
         label.add(bt_save);
